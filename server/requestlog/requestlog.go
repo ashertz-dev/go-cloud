@@ -190,12 +190,6 @@ type responseStats struct {
 	hijacked bool
 }
 
-func (r *responseStats) Flush() {
-	if f, ok := r.w.(http.Flusher); ok {
-		f.Flush()
-	}
-}
-
 func (r *responseStats) Header() http.Header {
 	return r.w.Header()
 }
